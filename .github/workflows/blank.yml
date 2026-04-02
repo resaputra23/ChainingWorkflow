@@ -4,7 +4,7 @@ name: Test Build image Docker
 
 on:  
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
   # for manual , if you need 
   workflow_dispatch:
