@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test Build image Docker
+
+on:  
+  push:
+    branches: [ "main" ]
+
+  # for manual , if you need 
+  workflow_dispatch:
+
+jobs: 
+  build:
+    # we used ubuntu
+    runs-on: ubuntu-latest
+   
+    steps:
+      - name: Checkout Code 
+        uses: actions/checkout@v4
+      
+      - name: Build Docker image
+        run: docker build -t my-test-app:latest .
+    
+      - name: Test the image
+        run: |
+          docker run --rm my-test-app:latest npm test
+          # or just verify it runs
+          docker run --rm my-test-app:latest node -e "console.log('OK')"
