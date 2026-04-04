@@ -24,7 +24,7 @@ jobs:
       # Test the image works
       - name: Test container
         run: |
-          docker run --rm test-nodejs-app:latest node -e "console.log('Container test passed!')"
+          docker run --rm my-test-app:latest node -e "console.log('Container test passed!')"
     
       #- name: Test the image
       #  run: |
